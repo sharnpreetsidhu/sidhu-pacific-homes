@@ -327,7 +327,7 @@ function Contact() {
 
           <div className="grid md:grid-cols-3 gap-6">
             <ContactItem label="Phone" value="604-862-3472" />
-            <ContactItem label="Email" value="sidhuipacifchomes@gmail.com" />
+            <ContactItem label="Email" value="sidhupacifchomes@gmail.com" />
             <ContactItem label="Service Area" value="Lower Mainland, BC" />
           </div>
 
