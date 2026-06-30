@@ -102,8 +102,8 @@ function About() {
         <div className="text-stone-600 leading-8">
           <p>
             Sidhu Pacific Homes is an electrical and general contracting company
-            serving homeowners, builders, and project teams across the Lower
-            Mainland. We support projects ranging from electrical work and
+            serving homeowners, builders, and project teams thats been serving the Lower
+            Mainland for over 30 years. We support projects ranging from electrical work and
             renovations to new custom homes and full project coordination.
           </p>
 
@@ -340,7 +340,7 @@ function Contact() {
             </a>
 
             <a
-              href="mailto:sidhuipacifchomes@gmail.com"
+              href="mailto:sidhupacifchomes@gmail.com"
               className="border border-stone-300 px-6 py-3 rounded-lg font-semibold text-center hover:bg-stone-50"
             >
               Send Email
