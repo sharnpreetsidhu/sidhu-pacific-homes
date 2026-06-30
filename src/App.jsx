@@ -77,7 +77,7 @@ function Hero() {
 
         <div className="rounded-3xl h-[420px] overflow-hidden shadow-sm bg-stone-200">
           <img
-            src="/images/fleetwood-project.png"
+            src="/images/fleetwood-project.jpeg"
             alt="Sidhu Pacific Homes Fleetwood project"
             className="w-full h-full object-cover"
           />
@@ -174,7 +174,7 @@ function Projects() {
   const projects = [
     {
       title: 'Fleetwood Project',
-      image: '/images/fleetwood-project.png',
+      image: '/images/fleetwood-project.jpeg',
       description:
         'Residential construction project completed with quality workmanship and organized coordination.',
     },
@@ -225,6 +225,12 @@ function Projects() {
       image: '/images/gibsons-project.png',
       description:
         'Residential construction support completed with dependable project coordination.',
+    },
+    {
+    title: 'South Surrey New Build', 
+      image: '/images/south-surrey.JPG',
+      description:
+        'Early-stage custom home construction in South Surrey, including foundation preparation, formwork, and site coordination.',
     },
   ]
 
