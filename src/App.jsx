@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 function App() {
   return (
     <main className="min-h-screen bg-stone-50 text-stone-900">
@@ -14,13 +16,20 @@ function App() {
 }
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const closeMenu = () => {
+    setIsOpen(false)
+  }
+
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-stone-200">
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-5 md:px-6 py-4 flex items-center justify-between">
         <a href="#home" className="text-xl font-bold tracking-tight">
           Sidhu Pacific Homes
         </a>
 
+        {/* Desktop links */}
         <div className="hidden md:flex items-center gap-7 text-sm font-medium text-stone-700">
           <a href="#about" className="hover:text-amber-700">About</a>
           <a href="#services" className="hover:text-amber-700">Services</a>
@@ -28,13 +37,89 @@ function Navbar() {
           <a href="#contact" className="hover:text-amber-700">Contact</a>
         </div>
 
-        <a
-          href="#contact"
-          className="bg-stone-900 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-amber-700"
+        <div className="hidden md:block">
+          <a
+            href="#contact"
+            className="bg-stone-900 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-amber-700"
+          >
+            Get a Quote
+          </a>
+        </div>
+
+        {/* Mobile hamburger */}
+        <button
+          type="button"
+          onClick={() => setIsOpen(true)}
+          className="md:hidden bg-stone-900 text-white px-4 py-2 rounded-lg text-sm font-semibold"
+          aria-label="Open menu"
         >
-          Get a Quote
-        </a>
+          Menu
+        </button>
       </nav>
+
+      {/* Dark overlay */}
+      {isOpen && (
+        <button
+          type="button"
+          onClick={closeMenu}
+          className="fixed inset-0 bg-black/40 z-40 md:hidden"
+          aria-label="Close menu overlay"
+        />
+      )}
+
+      {/* Mobile sidebar */}
+      <aside
+        className={`fixed top-0 right-0 h-screen w-80 max-w-[85%] bg-white z-50 shadow-2xl transform transition-transform duration-300 md:hidden ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="p-6 border-b border-stone-200 flex items-center justify-between">
+          <p className="font-bold text-lg">Sidhu Pacific Homes</p>
+
+          <button
+            type="button"
+            onClick={closeMenu}
+            className="text-stone-500 text-2xl leading-none"
+            aria-label="Close menu"
+          >
+            ×
+          </button>
+        </div>
+
+        <div className="p-6 flex flex-col gap-5 text-lg font-medium">
+          <a href="#about" onClick={closeMenu} className="hover:text-amber-700">
+            About
+          </a>
+
+          <a href="#services" onClick={closeMenu} className="hover:text-amber-700">
+            Services
+          </a>
+
+          <a href="#projects" onClick={closeMenu} className="hover:text-amber-700">
+            Projects
+          </a>
+
+          <a href="#contact" onClick={closeMenu} className="hover:text-amber-700">
+            Contact
+          </a>
+        </div>
+
+        <div className="px-6 mt-4 flex flex-col gap-3">
+          <a
+            href="tel:6048623472"
+            className="bg-amber-700 text-white px-5 py-3 rounded-lg font-semibold text-center"
+          >
+            Call Now
+          </a>
+
+          <a
+            href="mailto:sidhupacifichomes@gmail.com"
+            className="border border-stone-300 px-5 py-3 rounded-lg font-semibold text-center"
+          >
+            Send Email
+          </a>
+        </div>
+      </aside>
     </header>
   )
 }
@@ -279,28 +364,59 @@ function Projects() {
 
 function WhyChooseUs() {
   const reasons = [
-    'Electrical and construction experience',
-    'Clear communication',
-    'Quality workmanship',
-    'Reliable project coordination',
+    {
+      number: '01',
+      title: 'Electrical & Construction Experience',
+      text: 'Hands-on experience across electrical work, residential builds, renovations, and project coordination.',
+    },
+    {
+      number: '02',
+      title: 'Clear Communication',
+      text: 'Straightforward updates and organized planning so clients know what is happening at each stage.',
+    },
+    {
+      number: '03',
+      title: 'Quality Workmanship',
+      text: 'Focused on clean finishes, reliable installation, and construction work built to last.',
+    },
+    {
+      number: '04',
+      title: 'Reliable Project Coordination',
+      text: 'Coordinating trades, timelines, materials, and site progress to keep projects moving smoothly.',
+    },
   ]
 
   return (
-    <section className="py-20 bg-stone-900 text-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <p className="text-amber-500 font-semibold mb-3">Why Choose Us</p>
+    <section className="py-16 md:py-24 bg-stone-950 text-white">
+      <div className="max-w-7xl mx-auto px-5 md:px-6">
+        <div className="max-w-3xl">
+          <p className="text-amber-500 font-semibold mb-3">Why Choose Us</p>
 
-        <h2 className="text-3xl md:text-4xl font-bold mb-10">
-          Built with care from planning to completion.
-        </h2>
+          <h2 className="text-3xl md:text-5xl font-bold leading-tight">
+            Built with care, managed with attention, and finished with quality.
+          </h2>
 
-        <div className="grid md:grid-cols-4 gap-5">
+          <p className="mt-5 text-stone-300 leading-7">
+            From early planning to final walkthrough, Sidhu Pacific Homes focuses
+            on dependable work, clear communication, and organized project execution.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-4 gap-5 mt-12">
           {reasons.map((reason) => (
             <div
-              key={reason}
-              className="bg-white/10 border border-white/10 p-6 rounded-2xl"
+              key={reason.title}
+              className="bg-white/10 border border-white/10 p-6 rounded-2xl hover:bg-white/15 transition"
             >
-              <p className="font-semibold">{reason}</p>
+              <p className="text-amber-500 font-bold mb-5">{reason.number}</p>
+
+              <h3 className="text-lg font-bold mb-3">
+                {reason.title}
+              </h3>
+
+              <p className="text-stone-300 leading-7 text-sm">
+                {reason.text}
+              </p>
             </div>
           ))}
         </div>
@@ -327,7 +443,7 @@ function Contact() {
 
           <div className="grid md:grid-cols-3 gap-6">
             <ContactItem label="Phone" value="604-862-3472" />
-            <ContactItem label="Email" value="sidhupacifchomes@gmail.com" />
+            <ContactItem label="Email" value="sidhupacifichomes@gmail.com" />
             <ContactItem label="Service Area" value="Lower Mainland, BC" />
           </div>
 
