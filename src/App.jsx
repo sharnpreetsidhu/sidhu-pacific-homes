@@ -292,7 +292,7 @@ function Projects() {
         'Residential subdivision work with a focus on dependable construction and project execution.',
     },
     {
-      title: 'Gibsons, Vancouver Island', 
+      title: 'Gibsons, Vancouver Island',
       image: '/images/gibsons-vancouver-island.png',
       description:
         'Residential project work completed with organized site coordination and reliable workmanship.',
@@ -310,22 +310,47 @@ function Projects() {
         'General contracting and construction support for a residential project.',
     },
     {
-      title: 'Gibsons, Vancouver Island',
+      title: 'Gibsons Project',
       image: '/images/gibsons-project.png',
       description:
         'Residential construction support completed with dependable project coordination.',
     },
     {
-    title: 'South Surrey New Build', 
+      title: 'South Surrey New Build',
       image: '/images/south-surrey.JPG',
       description:
         'Early-stage custom home construction in South Surrey, including foundation preparation, formwork, and site coordination.',
     },
   ]
 
+  const [selectedIndex, setSelectedIndex] = useState(null)
+
+  const selectedProject =
+    selectedIndex !== null ? projects[selectedIndex] : null
+
+  const openSlideshow = (index) => {
+    setSelectedIndex(index)
+  }
+
+  const closeSlideshow = () => {
+    setSelectedIndex(null)
+  }
+
+  const showPrevious = () => {
+    setSelectedIndex((currentIndex) =>
+      currentIndex === 0 ? projects.length - 1 : currentIndex - 1
+    )
+  }
+
+  const showNext = () => {
+    setSelectedIndex((currentIndex) =>
+      currentIndex === projects.length - 1 ? 0 : currentIndex + 1
+    )
+  }
+
   return (
-    <section id="projects" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="projects" className="py-14 md:py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-5 md:px-6">
         <p className="text-amber-700 font-semibold mb-3">Projects</p>
 
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -339,18 +364,23 @@ function Projects() {
         </p>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <div
-              key={project.title}
+              key={`${project.title}-${index}`}
               className="rounded-2xl overflow-hidden border border-stone-200 shadow-sm bg-white"
             >
-              <div className="h-64 overflow-hidden bg-stone-200">
+              <button
+                type="button"
+                onClick={() => openSlideshow(index)}
+                className="h-56 sm:h-64 w-full overflow-hidden bg-stone-200 block cursor-pointer"
+                aria-label={`Open ${project.title} slideshow`}
+              >
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover hover:scale-105 transition duration-300"
                 />
-              </div>
+              </button>
 
               <div className="p-6">
                 <h3 className="text-xl font-bold">{project.title}</h3>
@@ -362,6 +392,57 @@ function Projects() {
           ))}
         </div>
       </div>
+
+      {selectedProject && (
+        <div className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center px-4">
+          <button
+            type="button"
+            onClick={closeSlideshow}
+            className="absolute top-5 right-5 text-white text-4xl font-bold hover:text-amber-500"
+            aria-label="Close slideshow"
+          >
+            ×
+          </button>
+
+          <button
+            type="button"
+            onClick={showPrevious}
+            className="absolute left-4 md:left-8 text-white text-5xl font-bold hover:text-amber-500"
+            aria-label="Previous project"
+          >
+            ‹
+          </button>
+
+          <div className="max-w-5xl w-full">
+            <img
+              src={selectedProject.image}
+              alt={selectedProject.title}
+              className="w-full max-h-[75vh] object-contain rounded-xl"
+            />
+
+            <div className="text-center mt-5 text-white">
+              <h3 className="text-2xl font-bold">{selectedProject.title}</h3>
+
+              <p className="text-stone-300 mt-2 max-w-2xl mx-auto">
+                {selectedProject.description}
+              </p>
+
+              <p className="text-stone-400 mt-3 text-sm">
+                {selectedIndex + 1} / {projects.length}
+              </p>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={showNext}
+            className="absolute right-4 md:right-8 text-white text-5xl font-bold hover:text-amber-500"
+            aria-label="Next project"
+          >
+            ›
+          </button>
+        </div>
+      )}
     </section>
   )
 }
