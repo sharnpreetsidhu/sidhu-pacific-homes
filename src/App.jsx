@@ -28,7 +28,7 @@ function Navbar() {
       <nav className="max-w-7xl mx-auto px-5 md:px-6 py-4 flex items-center justify-between">
        <a href="#home" className="flex items-center">
   <img
-    src="/images/logo-full.png"
+    src="/images/logo-full-transparent.png"
     alt="Sidhu Pacific Homes"
     className="h-20 w-auto"
   />
@@ -275,7 +275,7 @@ function Projects() {
     },
     {
       title: 'Surrey Custom Build',
-      image: '/images/project-2.jpg',
+      image: '/images/project-2.jpeg',
       description:
         'Custom residential project work completed with reliable planning and detailed execution.',
     },
@@ -283,7 +283,7 @@ function Projects() {
       title: 'Oakridge Mall',
       image: '/images/oakridge-mall.png',
       description:
-        'Electrical and contracting support completed in a larger project environment.',
+        'Electrical and contracting support completed in a larger commerical environment.',
     },
     {
       title: 'Subdivision',
@@ -526,7 +526,7 @@ function Contact() {
             homes, renovations, or project management across the Lower Mainland.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-4 md:gap-6">
             <ContactItem label="Phone" value="604-862-3472" />
             <ContactItem label="Email" value="sidhupacifichomes@gmail.com" />
             <ContactItem label="Service Area" value="Lower Mainland, BC" />
@@ -557,7 +557,9 @@ function ContactItem({ label, value }) {
   return (
     <div className="bg-stone-50 p-5 rounded-xl border border-stone-200">
       <p className="text-sm text-stone-500 mb-1">{label}</p>
-      <p className="font-semibold break-words">{value}</p>
+      <p className="font-semibold text-sm sm:text-base break-words">
+        {value}
+      </p>
     </div>
   )
 }
