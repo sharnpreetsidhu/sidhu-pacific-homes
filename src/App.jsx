@@ -11,6 +11,7 @@ function App() {
       <WhyChooseUs />
       <Contact />
       <Footer />
+      <BackToTopButton />
     </main>
   )
 }
@@ -485,9 +486,21 @@ function Footer() {
     <footer className="bg-white border-t border-stone-200 py-6">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-3 text-sm text-stone-500">
         <p>© 2026 Sidhu Pacific Homes. All rights reserved.</p>
-        <p>Electrical • General Contracting • Custom Homes</p>
+        <p>• Electrical Contracting • General Contracting </p>
       </div>
     </footer>
+  )
+}
+
+function BackToTopButton() {
+  return (
+    <a
+      href="#home"
+      className="fixed bottom-5 right-5 z-50 bg-stone-900 text-white h-12 w-12 rounded-full flex items-center justify-center shadow-lg hover:bg-amber-700 transition text-xl font-bold"
+      aria-label="Back to top"
+    >
+      ↑
+    </a>
   )
 }
 
