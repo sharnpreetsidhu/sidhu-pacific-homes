@@ -340,7 +340,7 @@ function Contact() {
             </a>
 
             <a
-              href="mailto:sidhupacifchomes@gmail.com"
+              href="mailto:sidhupacifichomes@gmail.com"
               className="border border-stone-300 px-6 py-3 rounded-lg font-semibold text-center hover:bg-stone-50"
             >
               Send Email
