@@ -102,7 +102,7 @@ function About() {
         <div className="text-stone-600 leading-8">
           <p>
             Sidhu Pacific Homes is an electrical and general contracting company
-            serving homeowners, builders, and project teams thats been serving the Lower
+            serving homeowners, builders, and project teams in the Lower
             Mainland for over 30 years. We support projects ranging from electrical work and
             renovations to new custom homes and full project coordination.
           </p>
