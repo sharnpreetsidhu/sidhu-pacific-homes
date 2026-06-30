@@ -25,10 +25,13 @@ function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-stone-200">
       <nav className="max-w-7xl mx-auto px-5 md:px-6 py-4 flex items-center justify-between">
-        <a href="#home" className="text-xl font-bold tracking-tight">
-          Sidhu Pacific Homes
-        </a>
-
+       <a href="#home" className="flex items-center">
+  <img
+    src="/images/logo-full.png"
+    alt="Sidhu Pacific Homes"
+    className="h-20 w-auto"
+  />
+</a>
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-7 text-sm font-medium text-stone-700">
           <a href="#about" className="hover:text-amber-700">About</a>
