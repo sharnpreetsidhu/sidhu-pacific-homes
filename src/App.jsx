@@ -25,12 +25,12 @@ function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-stone-200">
-      <nav className="max-w-7xl mx-auto px-5 md:px-6 py-4 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between gap-3">
        <a href="#home" className="flex items-center">
   <img
     src="/images/logo-full-transparent.png"
     alt="Sidhu Pacific Homes"
-    className="h-20 w-auto"
+    className="h-12 w-auto max-w-[220px] object-contain md:h-16 md:max-w-none"
   />
 </a>
         {/* Desktop links */}
@@ -54,7 +54,7 @@ function Navbar() {
         <button
           type="button"
           onClick={() => setIsOpen(true)}
-          className="md:hidden bg-stone-900 text-white px-4 py-2 rounded-lg text-sm font-semibold"
+          className="md:hidden bg-stone-900 text-white px-3 py-2 rounded-lg text-sm font-semibold shrink-0"
           aria-label="Open menu"
         >
           Menu
