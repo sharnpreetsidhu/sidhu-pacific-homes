@@ -47,7 +47,7 @@ function Navbar() {
         <div className="hidden md:block">
          
          <a
-  href="#project-request"
+  href="#contact"
   className="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 font-semibold text-white shadow-lg transition hover:bg-neutral-800"
 >
   Get a Quote
@@ -154,7 +154,7 @@ function Hero() {
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
             <a
-              href="#contact"
+              href="#project-request"
               className="bg-amber-700 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-amber-800"
             >
               Start Your Project
