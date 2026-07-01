@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import ProjectRequest from './ProjectRequest'
+import './App.css'
 
 function App() {
   return (
@@ -9,6 +11,7 @@ function App() {
       <Services />
       <Projects />
       <WhyChooseUs />
+      <ProjectRequest />
       <Contact />
       <Footer />
       <BackToTopButton />
@@ -42,12 +45,14 @@ function Navbar() {
         </div>
 
         <div className="hidden md:block">
-          <a
-            href="#contact"
-            className="bg-stone-900 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-amber-700"
-          >
-            Get a Quote
-          </a>
+         
+         <a
+  href="#project-request"
+  className="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 font-semibold text-white shadow-lg transition hover:bg-neutral-800"
+>
+  Get a Quote
+</a>
+
         </div>
 
         {/* Mobile hamburger */}
